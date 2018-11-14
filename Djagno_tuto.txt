@@ -22,6 +22,7 @@ django-admin.py startproject [mysite] .
 #설정 좀 하고
 #블로그에 DB하기 위해 settings.py
 python manage.py migrate
+
 #실행
 python manage.py runserver
 
@@ -66,3 +67,16 @@ HTML 웹 브라우저(크롬,익스플로러)가 해석 할 수 있는 간단한 코드
 HyperText 페이지 간 하이퍼링크가 포함된 텍스트
 Markup 누군가가 문서를 해석하도록 표시(mark)
 tag <> - markup 요소(elements)
+
+
+#git - 정리 한번 
+ignore
+
+local 
+
+remote 설정 
+commit
+push 넣어
+pull 받아와
+
+HTML 시작하기
