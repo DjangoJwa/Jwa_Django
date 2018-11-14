@@ -1,29 +1,41 @@
 <!DOCTYPE html>
+<!--HTMl에 파이썬코드 바로 넣을수 x 브라우저는 HTML만 알아. HTML-정적/Python-동적
+views에서 보낸 {{ posts }}
+-->
+
+{% load static %}
 <html lang="ko">
 <head>
     <!--문서 정보를 가지고 있지만, 웹 페이지에서 보이지 않음-->
     <meta charset="UTF-8">
     <title>Jwa_Django_Main</title>
 
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-time.min.css">
+    <link rel="stylesheet" href="{% static 'css/jwa_blog.css' %}">
+
 </head>
 <body>
 <!--웹 페이지에서 직접적으로 보이는 내용-->
-    <div>
+    <div class="page-header">
         <h1><a href="" >Django Blog</a></h1>
     </div>
 
-    <div>
-        <p>div1-published: 2018.11.14.(Wed)</p>
-        <h2><a href="">first post</a></h2>
-        <p>아주 신기하구만</p>
-    </div>
-
-    <div>
-        <p>div2-published: 2018.11.14.(Wed)</p>
-        <h2><a href="">second post</a></h2>
-        <p>신기햄수다이</p>
-
-    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <p>published: {{ post.published_date}}</p>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                <!--|라인브레이커 파이프문자(|) 블로그 글 텍스트에서 행이 바뀌면 문단으로 변환하도록 하라는 의미-->
+                {% endfor %}
+            </div>
+        </div>
+     </div>
 
 </body>
 </html>
